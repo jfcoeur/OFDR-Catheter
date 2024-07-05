@@ -14,7 +14,7 @@ function [x, sig, ite, hh] = fun(ref, samps, gen, ite, itetot, hh)
 
         samp = samps(s);
 
-        [x, sigout] = time2strain(ref, samp, gen);
+        [x, sigout] = wvlshift(ref, samp, gen);
         sig(s,:) = sigout;
 
         % Waitbar
