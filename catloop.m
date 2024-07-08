@@ -17,21 +17,24 @@ curv = gen.curv;
 for c = 1:length(curv)
 
     k = curv(c);    
-    g = gauge(gen, sig1, sig2, sig3, c);
+    [gout{:,c}, tet1out{:,c}] = gauge(gen, sig1, sig2, sig3, c);
     
 end % c = 1:length(curv)
 
 % Resolution loop
 for r = 1:length(gen.res)
 
-    for k = 1:size(Mout,2)
+    for k = 1:length(curv)
     
-        p = Mout{r,k};
-        m(:,:,k) = p;         
+        temp_g = gout{r,k};
+        temp_tet1 = tet1out{r,k}        
+        Mg(:,:,k) = temp_g;
+        Mtet1(:,:,k) = temp_tet1;
     
-    end % k = 1:size(Mout,2)
+    end % k = 1:length(curv)
     
-    M{r} = m;
+    g{r} = Mg;
+    tet1{r} = Mtet1;
 
 end % r = 1:length(gen.res)
 
