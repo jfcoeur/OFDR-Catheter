@@ -9,9 +9,6 @@ warning('off','all')
 % Calculation
 [g, tet1] = catloop(in.dirdata, in.gen);
 
-% Averaging
-
-
 % Saving
 calib = struct('g', g, 'tet1', tet1);
 filename = in.savepath + "_calib.mat";
