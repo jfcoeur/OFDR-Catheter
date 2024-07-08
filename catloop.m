@@ -1,4 +1,4 @@
-function [tet1, g] = step1(dirdata, gen)
+function [tet1, g] = catloop(dirdata, gen)
 
 % Strain signals file
 filename = dirdata + "_sig.mat";
@@ -35,4 +35,4 @@ for r = 1:length(gen.res)
 
 end % r = 1:length(gen.res)
 
-end % function step1
+end % function catloop
