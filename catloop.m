@@ -1,4 +1,4 @@
-function [tet1, g] = catloop(dirdata, gen)
+function [g, tet1] = catloop(dirdata, gen)
 
 % Strain signals file
 filename = dirdata + "_sig.mat";
