@@ -12,8 +12,7 @@ for r = 1:numres
 
         for c = 1:length(categories)
         
-            [xout, siginit] = fun(dirref, dirsamp(c), gen, ite, itetot, hh, r);
-            sigout(:,:,:,c) = siginit;
+            [xout, sigout(:,:,:,c)] = fun(dirref, dirsamp(c), gen, ite, itetot, hh, r);            
             
         end % c = 1:length(categories)
     
