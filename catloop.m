@@ -33,8 +33,8 @@ for r = 1:length(gen.res)
     
     end % k = 1:length(curv)
     
-    g{r} = Mg;
-    tet1{r} = Mtet1;
+    g{r} = mean(Mg,3);
+    tet1{r} = mean(Mtet1,3);
 
 end % r = 1:length(gen.res)
 
