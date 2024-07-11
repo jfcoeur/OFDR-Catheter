@@ -30,7 +30,7 @@ end % f = 1:3
 
 % Saving
 results.x = x;
-filename = in.savepath + "_sig.mat";
+filename = in.dirsave + "_sig.mat";
 save(filename,"results")
 
 disp("Strain task completed");
