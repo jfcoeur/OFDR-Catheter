@@ -1,10 +1,10 @@
 function [filesref, filessamp] = ovapaths(dirref, dirsamp)
 
 % References
-filesref = getpaths(dirref + "/*.csv");
+filesref = getpaths(dirref + "*.csv");
 
 % Samples
-filessamp = getpaths(dirsamp + "/*.csv");
+filessamp = getpaths(dirsamp + "*.csv");
 
 %%%%%%%%
 function [paths] = getpaths(direct)
@@ -14,7 +14,7 @@ function [paths] = getpaths(direct)
     names = cellfun(@convertCharsToStrings,names);
     folders = {list.folder};
     folders = cellfun(@convertCharsToStrings,folders);
-    paths = append(folders,"/",names);
+    paths = append(folders,filesep,names);
     
 end % function getpaths
 %%%%%%%%
