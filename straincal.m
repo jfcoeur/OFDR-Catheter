@@ -1,4 +1,4 @@
-function [x, sig, ite, hh] = straincal(filesref, filessamp, ite, itetot, hh)
+function [x, sig] = straincal(filesref, filessamp)
 
 numrefs = length(filesref);
 numsamps = length(filessamp);
@@ -11,11 +11,7 @@ for r = 1:numrefs
 
         samp = filessamp(s);
         [x, sigout] = wvlshift(ref, samp);
-        sig(s,:,r) = sigout;
-
-        % Waitbar
-        ite = ite + 1;
-        waitbar(ite/itetot, hh)         
+        sig(s,:,r) = sigout;    
     
     end % s = 1:numsamps
     
