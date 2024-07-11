@@ -1,6 +1,5 @@
 # Main
 - inputs
-- conditions
 - RUNME
 - README
 
