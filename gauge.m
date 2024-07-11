@@ -25,13 +25,14 @@ for r = 1:length(gen.res)
         	sig2 = f2(a,:,ref,c);
         	sig3 = f3(a,:,ref,c);
         	
-        	[k(a,:,ref), tet1(a,:,ref)] = k&tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);        	
+        	[k(a,:,ref), tet1(a,:,ref)] = k&tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
         
         end % a = 1:size(sig1,1)
 
         kave = mean(k,1);
-        tet1ave{r} = mean(tet1,1);
-        g{r} = kave./gen.curv(c);
+        tet1ave = mean(tet1,1);
+        g = kave./gen.curv(c);
+        [g{r}, tet1ave{r}] = paramfilt(r, g, tet1ave, gen);
     
     end ref = 1:size(f1,3)
     
