@@ -35,7 +35,7 @@ function [x, sig] = fun(dirref, dirsamp, gen, r)
     [x, sig] = straincal(filesref, filessamp);
     
     % Filtering    
-    sig = strainfilt(r, x, sig, gen);
+    [x, sig] = strainfilt(r, x, sig, gen);
 
 end % function fun
 %%%%%%%%
