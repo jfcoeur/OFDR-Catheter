@@ -30,12 +30,13 @@ for r = 1:length(gen.res)
         end % a = 1:size(sig1,1)
 
         kave = mean(k,1);
-        tet1ave = mean(tet1,1);
-        g = kave./gen.curv(c);
-        [g{r}, tet1ave{r}] = paramfilt(r, g, tet1ave, gen);
+        tet1ave(:,ref) = mean(tet1,1);
+        g(:,ref) = kave./gen.curv(c);
     
     end ref = 1:size(f1,3)
     
+    [g{r}, tet1ave{r}] = paramfilt(r, g, tet1ave, gen);    
+        
 end % r = 1:length(gen.res)
 
 end % function gauge
