@@ -1,4 +1,4 @@
-function [sigout] = strainfilt(r, x, sig, gen)
+function [x, sigout] = strainfilt(r, x, sig, gen)
 
 res = gen.res(r);
 lx = x(2) - x(1);
