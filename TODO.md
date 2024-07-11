@@ -11,7 +11,6 @@
 - main
 - ovapaths
 - resloop
-- straincal (waitbar)
 - README
 
 # Calibration
