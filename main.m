@@ -10,7 +10,7 @@ gen = in.gen;
 gen.curv = gen.curvatures(in.dataset,:);
 
 % Calculation
-[g, tet1] = catloop(in.dirdata, gen);
+[g, tet1] = catloop(in.dirload, gen);
 
 % Saving
 calib = struct('g', g, 'tet1', tet1);
