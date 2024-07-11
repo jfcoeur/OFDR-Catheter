@@ -13,7 +13,6 @@
 - resloop
 - straincal
 - strainfilt
-- wvlshift
 - README
 
 # Calibration
