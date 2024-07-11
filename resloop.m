@@ -19,10 +19,6 @@ for r = 1:numres
     x{r} = xout;
     sig{r} = sigout;
 
-    % Display progress
-    prog = string(r) + "/" + string(numres);
-    fprintf('%s\r', prog);
-
 end % r = 1:numres
 
 %%%%%%%%
