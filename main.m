@@ -1,4 +1,4 @@
-function [out] = main(in)
+function [] = main(in)
 
 % Initialization
 clearvars
@@ -14,7 +14,6 @@ calib = struct('g', g, 'tet1', tet1);
 filename = in.savepath + "_calib.mat";
 save(filename, "calib");
 
-out = [];
 disp("Calibration task completed");
 
 end % function main
