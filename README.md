@@ -7,11 +7,11 @@ MATLAB scripts for OFDR strain sensing with catheter
 
 ## TODO
 ### General
-| Variable   | Format   | Possible inputs                                                     | Description                                      |
-|------------|----------|---------------------------------------------------------------------|--------------------------------------------------|
-| `task`     | `string` | "Strain" <br>"Calibration" <br>"Validation" <br>"Shape" <br>"Force" | Name of the task to perform.                     |
-| `loadname` | `string` |                                                                     | First half of the name of the file to be loaded. |
-| `savename` | `string` |                                                                     | First half of the name of the file to be saved.  |
+| Variable   | Format   | Possible inputs                                         | Description                                      |
+|------------|----------|---------------------------------------------------------|--------------------------------------------------|
+| `task`     | `string` | "Strain" <br>"Calibration" <br>"Validation" <br>"Shape" | Name of the task to perform.                     |
+| `loadname` | `string` |                                                         | First half of the name of the file to be loaded. |
+| `savename` | `string` |                                                         | First half of the name of the file to be saved.  |
 
 
 # Strain
