@@ -1,11 +1,15 @@
 function [g, tet1] = paramfilt(r, g, tet1, gen)
 
-% Remove outliers
-g = filloutliers(g,"center");
-tet1 = filloutliers(tet1,"center");
+for ref = 1:size(g,2)
 
-% Smoothing
-g = smoothdata(g,"sgolay", gen.wins(r));    
-tet1 = smoothdata(tet1,"sgolay", gen.wins(r));
+    % Remove outliers
+    g(:,ref) = filloutliers(g(:,ref),"center");
+    tet1(:,ref) = filloutliers(tet1(:,ref),"center");
+    
+    % Smoothing
+    g(:,ref) = smoothdata(g(:,ref),"sgolay", gen.wins(r));    
+    tet1(:,ref) = smoothdata(tet1(:,ref),"sgolay", gen.wins(r));
+
+end % ref = 1:size(g,2)
     
 end % function paramfilt
