@@ -12,7 +12,6 @@
 - ovapaths
 - resloop
 - straincal
-- strainfilt
 - README
 
 # Calibration
