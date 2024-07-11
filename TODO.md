@@ -1,7 +1,6 @@
 # Main
 - inputs
 - getdir
-- general
 - conditions
 - RUNME
 - README
