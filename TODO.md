@@ -6,8 +6,5 @@
 - RUNME
 - README
 
-# Calibration
-- Dimensions g & tet1
-
 # Validation
 - ALL
