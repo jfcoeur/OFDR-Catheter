@@ -5,7 +5,7 @@ list = {list(3:end)};
 folderflags = [list.isdir];
 
 if all(folderflags,'all')
-    folders = "/" + cellfun(@convertCharsToStrings, {list.name});
+    folders = cellfun(@convertCharsToStrings, {list.name}) + filesep;
 else
     folders = "";
 end
