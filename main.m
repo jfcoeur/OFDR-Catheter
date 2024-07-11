@@ -8,20 +8,18 @@ warning('off','all')
 %%%%%%%%%%%%%%%%%%
 
 % Inputs
-dirdata = in.dirdata;
+dirraw = in.dirraw;
 gen = in.gen;
-
-results = struct;
 
 for f = 1:3    
 
     % Directories
-    dirref = dirdata(f) + "/References";
-    dirsamp = dirdata(f) + "/Samples";
+    dirref = dirraw(f) + "References" + filesep;
+    dirsamp = dirraw(f) + "Samples" + filesep;
     categories = listfolders(dirsamp);
     dirsamp = dirsamp + categories;
 
-    [x, sig] = resloop(dirref, dirsamp, categories, gen, in.itetot);
+    [x, sig] = resloop(dirref, dirsamp, categories, gen);
 
     field = ['fiber' num2str(f)];
     results.(field) = sig;
