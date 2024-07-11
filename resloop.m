@@ -1,28 +1,23 @@
-function [x, sig] = resloop(dirref, dirsamp, categories, gen, itetot)
+function [x, sig] = resloop(dirref, dirsamp, categories, gen)
 
 numres = length(gen.res)
 
 for r = 1:numres
 
-    % Waitbar
-    hh = waitbar(0);
-    ite = 0;
-
     if ~isempty(categories)
 
         for c = 1:length(categories)
         
-            [xout, sigout(:,:,:,c)] = fun(dirref, dirsamp(c), gen, ite, itetot, hh, r);            
+            [xout, sigout(:,:,:,c)] = fun(dirref, dirsamp(c), gen, r);            
             
         end % c = 1:length(categories)
     
     else
-        [xout, sigout] = fun(dirref, dirsamp, gen, ite, itetot, hh, r);
+        [xout, sigout] = fun(dirref, dirsamp, gen, r);
     end
 
     x{r} = xout;
     sig{r} = sigout;
-    close(hh)
 
     % Display progress
     prog = string(r) + "/" + string(numres);
@@ -31,13 +26,13 @@ for r = 1:numres
 end % r = 1:numres
 
 %%%%%%%%
-function [x, sig] = fun(dirref, dirsamp, gen, ite, itetot, hh, r)
+function [x, sig] = fun(dirref, dirsamp, gen, r)
 
     % Files paths
     [filesref, filessamp] = ovapaths(dirref, dirsamp);
     
     % Strain calculation
-    [x, sig, ite, hh] = straincal(filesref, filessamp, ite, itetot, hh);
+    [x, sig] = straincal(filesref, filessamp);
     
     % Filtering    
     sig = strainfilt(r, x, sig, gen);
