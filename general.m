@@ -17,4 +17,6 @@ idx_full = [41:410; 10:379; 15:384];
 idx_sin = [102:358; 71:327; 76:332];
 idx_exp = [150:358; 119:327; 124:332];
 
+% Lengths
+
 end % function general
