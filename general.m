@@ -12,6 +12,10 @@ gen.r3 = r1; % [m]
 gen.tet12 = 240; % [deg] 
 gen.tet23 = -120; % [deg]
 
+% Calibration curvatures
+radius = [24.8 51.4 66]*1e-2/(2*pi);
+gen.curv = 1./radius;
+
 % Indices
 idx_full = [41:410; 10:379; 15:384];
 idx_sin = [102:358; 71:327; 76:332];
