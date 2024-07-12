@@ -10,7 +10,7 @@ switch task
         in = calib(directories, gen);
     
     case "Validation"
-
+        in = valid(directories, gen);
     
     case "Shape"
 
@@ -40,7 +40,11 @@ end % function calib
 %%%%%%%%
 
 %%%%%%%%
-function [out] = valid()
+function [out] = valid(directories, gen)
+
+    out.gen = gen;
+    out.dirload = directories.load;
+
 end % function valid
 %%%%%%%%
 
