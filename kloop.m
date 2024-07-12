@@ -21,7 +21,7 @@ curv = gen.curv;
 for c = 1:length(curv)
 
     k = curv(c);
-    [xyz{:,c}, k{:,c}, alpha{:,c}, err{:,c}] = shape(gen, x, sig1, sig2, sig3, calib, c);
+    [xyz{:,c}, k{:,c}, alpha{:,c}, err{:,c}] = shape(dirload, gen, x, sig1, sig2, sig3, calib, c);
 
 end % c = 1:length(curv)
 
@@ -31,16 +31,16 @@ for r = 1:length(gen.res)
     for k = 1:size(xyz,2)
     
         temp = xyz{r,k};
-        mxyz(:,:,:,k) = temp; 
+        mxyz(:,:,:,:,k) = temp; 
         
         temp = k{r,k};
-        mk(:,:,k) = temp; 
+        mk(:,:,:,k) = temp; 
         
         temp = alpha{r,k};
-        malpha(:,:,k) = temp; 
+        malpha(:,:,:,k) = temp; 
         
         temp = err{r,k};
-        merr(:,:,k) = temp;   
+        merr(:,:,:,k) = temp;   
         
     end % k = 1:size(xyz,2)
     
