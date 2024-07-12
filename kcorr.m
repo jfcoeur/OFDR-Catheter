@@ -1,10 +1,14 @@
-function [k] = kcorr(gen, k, r)
+function [kout] = kcorr(dirload, k, r)
 
-idx = gen.idx;
-kprox = mean(k(idx));
+% Gauge
+filecalib = dirload + "_calib.mat";
+g = load(filecalib).g{r};
 
-% Gauge determination
-g = gauge(kprox, r);
-k = k./g;
+% Curvature correction
+for ref = 1:size(g,2)
+
+    kout(ref,:) = k./g(:,ref);
+
+end % ref = 1:size(g,2)
 
 end % function kcorr
