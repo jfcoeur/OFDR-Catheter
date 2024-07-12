@@ -1,20 +1,19 @@
 function [Terr] = errors(gen, x, xyz, k, alpha, c)
 
-ang = -gen.ang + 270;
+alphar = zeros(size(x));
 kr = gen.curv(c)*ones(size(x));
 rownames = {'err_ave' 'err_std' 'tip_ave' 'tip_std' 'rmse_ave' 'rmse_std'};
 colnames = {'xyz' 'k' 'alpha'};
 
 % Theoretical shape
-for a = 1:length(ang)
-
-    alphar = ang(a)*ones(size(x));
+for s = 1:size(xyz,1)
+    
     xyzr = 3Dcoord(x, kr, alphar);
-    [err_xyz(a,:), rmse_xyz(a)] = fun(xyzr, xyz(a,:,:));
-    [err_k(a,:), rmse_k(a)] = fun(kr, k(a,:));
-    [err_alpha(a,:), rmse_alpha(a)] = fun(alphar, alpha(a,:));
+    [err_xyz(s,:), rmse_xyz(s)] = fun(xyzr, xyz(s,:,:));
+    [err_k(s,:), rmse_k(s)] = fun(kr, k(s,:));
+    [err_alpha(s,:), rmse_alpha(s)] = fun(alphar, alpha(s,:));
 
-end % a = 1:length(gen.ang)
+end % s = 1:size(xyz,1)
 
 colxyz = funcall(err_xyz, rmse_xyz);
 colk = funcall(err_k, rmse_k);
