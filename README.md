@@ -66,12 +66,18 @@ Saves outputs in *_calib.mat* file at `dirsave`.
 **Purpose:** Validate the calibration results.
 
 ## Inputs
-| Input | Format | Dimensions | Description |
-|-------|--------|------------|-------------|
+| Input     | Format   | Dimensions | Description                                                                                     |
+|-----------|----------|------------|-------------------------------------------------------------------------------------------------|
+| `dirload` | `string` | 1x1        | Path to load the strain results in *_sig.mat* file and the calibration results in *_calib.mat*. |
+| `gen`     | `struct` | 1x1        | General parameters.                                                                             |
 
 ## Outputs
-| Output | Format | Dimensions | Description |
-|--------|--------|------------|-------------|
+| Output  | Format | Dimensions                                                                           | Description        |
+|---------|--------|--------------------------------------------------------------------------------------|--------------------|
+| `xyz`   | `cell` | [resolution]x1 <br> [samples] x [axis] x [coordinates] x [references] x [curvatures] | 3D coordinates     |
+| `k`     | `cell` | [resolution]x1 <br> [samples] x [values] x [references] x [curvatures]               | Curvature arrays   |
+| `alpha` | `cell` | [resolution]x1 <br> [samples] x [values] x [references] x [curvatures]               | Orientation arrays |
+| `err`   | `cell` | [resolution]x1 <br> [errors] x [variables] x [references] x [curvatures]             | Table of errors    |
 
 
 # Shape
