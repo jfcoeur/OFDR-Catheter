@@ -6,11 +6,7 @@ clc
 close all
 warning('off','all')
 
-gen = in.gen;
-gen.ang = gen.angles(in.dataset,:);
-gen.curv = gen.curvatures(in.dataset,:);
-
-[out.xyz, out.k, out.alpha, out.err] = kloop(in.dirload, gen)
+[out.xyz, out.k, out.alpha, out.err] = kloop(in.dirload, in.gen)
 
 % Step
 disp("Validation task completed");
