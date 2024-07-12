@@ -1,7 +1,6 @@
-function [xyz, k, alpha, err] = shape(dirload, gen, xin, s1, s2, s3, c)
+function [xyz, k, alpha, err] = shape(gin, tet1_in, gen, xin, s1, s2, s3, c)
 
 % Calibration parameters
-tet1 = gen.tet1;
 tet12 = gen.tet12;
 tet23 = gen.tet23;
 r1 = gen.r1;
@@ -14,12 +13,17 @@ for r = 1:length(gen.res)
     f2 = s2{r};
     f3 = s3{r};
     x = xin{r};
+    tet1_temp = tet1_in{r};
+    g_temp = gin{r};
     
     kout = [];
     alphaout = [];
     xyzout = [];
 
     for ref = 1:size(f1,3)
+
+        tet1 = tet1_temp(:,ref);
+        g = g_temp(:,ref);
 
         for s = 1:size(f1,1)
 
@@ -31,7 +35,7 @@ for r = 1:length(gen.res)
             [ktemp, alphaout(s,:,ref)] = k&alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
     
             % Curvature correction
-            kout(s,:,ref) = kcorr(dirload, k, r, ref);
+            kout(s,:,ref) = ktemp./g;            
             
             % 3D coordinates
             xyzout(s,:,:,ref) = 3Dcoord(x, kout(s,:,ref), alphaout(s,:,ref))     
