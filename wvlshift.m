@@ -13,8 +13,8 @@ t = ref.data(:,1);
 x = c/n*t*1e-9/2;
 
 % Wavelengths
-refwav = ref.data(:,3);
-sampwav = samp.data(:,3);
+refwav = ref.data(gen.idx,3);
+sampwav = samp.data(gen.idx,3);
 
 % Strain
 sig = (sampwav - refwav)./refwav;
