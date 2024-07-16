@@ -36,7 +36,7 @@ dirload = dirproc + loadname;
 dirsave = dirproc + savename;
 
 % Output structure
-directories = struct('functions', dirtask, 'raw', dirraw, 'processed', dirproc, 'load', dirload, 'save', dirsave);
+directories = struct('functions', dirtask, 'raw', dirraw, 'load', dirload, 'save', dirsave);
 
 %%%%%%%%
 function [fibers] = fun(direct)
