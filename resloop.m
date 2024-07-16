@@ -12,8 +12,7 @@ for r = 1:numres
         
             field = char(categories(c));
             field = field(1:end-1);
-            idx_temp = gen.(field);
-            gen.idx = idx_temp(f,:);   
+            gen = getidx(gen, field, f);
 
             [xout, siginit] = fun(dirref, dirsamp(c), gen, r);   
             sigout.(field) = siginit;
