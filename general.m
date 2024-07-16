@@ -16,9 +16,9 @@ radius = [24.8 51.4 66]*1e-2/(2*pi);
 gen.curv = 1./radius;
 
 % Indices
-% idx_full = [41:410; 10:379; 15:384];
 idx_sin = [2026:7151; 1380:6505; 1508:6633];
 idx_exp = [2967:7152; 2324:6509; 2460:6645];
+idx_full = idx_sin;
 
 % Lengths
 % Lfull = ;
