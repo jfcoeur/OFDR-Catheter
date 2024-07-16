@@ -1,4 +1,4 @@
-function [x, sig] = wvlshift(fileref, filesamp)
+function [x, sig] = wvlshift(fileref, filesamp, gen)
 
 % Reference and sample data
 ref = importdata(fileref, '\t', 8);
