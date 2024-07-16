@@ -1,4 +1,4 @@
-function [x, sig] = resloop(dirref, dirsamp, categories, gen)
+function [x, sig] = resloop(dirref, dirsamp, categories, gen, f)
 
 numres = length(gen.res);
 
@@ -12,7 +12,8 @@ for r = 1:numres
         
             field = char(categories(c));
             field = field(1:end-1);
-            gen.idx = gen.(field);   
+            idx_temp = gen.(field);
+            gen.idx = idx_temp(f,:);   
 
             [xout, siginit] = fun(dirref, dirsamp(c), gen, r);   
             sigout.(field) = siginit;
