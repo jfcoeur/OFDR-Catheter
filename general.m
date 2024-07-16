@@ -22,8 +22,8 @@ idx_sin = [102:358; 71:327; 76:332];
 idx_exp = [150:358; 119:327; 124:332];
 
 % Lengths
-Lfull = ;
-Lsin = ;
-Lexp = ;
+% Lfull = ;
+% Lsin = ;
+% Lexp = ;
 
 end % function general
