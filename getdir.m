@@ -42,8 +42,8 @@ directories = struct('functions', dirtask, 'raw', dirraw, 'processed', dirproc, 
 function [fibers] = fun(direct)
 
 list = dir(direct);
-list = [list.isdir];
-folderflags = list(3:end);
+folderflags = [list.isdir];
+folderflags = folderflags(3:end);
 numf = length(folderflags);
 
 if all(folderflags,'all') && numf == 3
