@@ -1,4 +1,4 @@
-function [] = main(in)
+function [out] = main(in)
 
 % Initialization %
 clearvars
@@ -31,6 +31,7 @@ results.x = x;
 filename = in.dirsave + "_sig.mat";
 save(filename,"results")
 
+out = [];
 disp("Strain task completed");
 
 end % function main
