@@ -42,12 +42,14 @@ directories = struct('functions', dirtask, 'raw', dirraw, 'processed', dirproc, 
 function [fibers] = fun(direct)
 
 list = dir(direct);
+names = string({list.name});
+names = names(3:end);
 folderflags = [list.isdir];
 folderflags = folderflags(3:end);
 numf = length(folderflags);
 
 if all(folderflags,'all') && numf == 3
-    fibers = cellfun(@convertCharsToStrings, {list.name}) + filesep;
+    fibers = names + filesep;
 else
     fibers = "";
 end
