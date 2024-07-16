@@ -1,6 +1,6 @@
 function [x, sig] = resloop(dirref, dirsamp, categories, gen)
 
-numres = length(gen.res)
+numres = length(gen.res);
 
 for r = 1:numres
 
