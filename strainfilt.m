@@ -2,7 +2,7 @@ function [x, sigout] = strainfilt(r, x, sig, gen)
 
 res = gen.res(r);
 lx = x(2) - x(1);
-sampling = res/lx;
+sampling = round(res/lx);
 
 for s = 1:size(sig,1)
 
