@@ -10,9 +10,11 @@ for r = 1:numres
 
         for c = 1:length(categories)
         
-            [xout, siginit] = fun(dirref, dirsamp(c), gen, r);
             field = char(categories(c));
             field = field(1:end-1);
+            gen.idx = gen.(field);   
+
+            [xout, siginit] = fun(dirref, dirsamp(c), gen, r);   
             sigout.(field) = siginit;
             
         end % c = 1:length(categories)
