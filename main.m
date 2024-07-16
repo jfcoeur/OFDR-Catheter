@@ -12,7 +12,7 @@ for f = 1:3
     categories = listfolders(dirsamp);
     dirsamp = dirsamp + categories;
 
-    [x, sig] = resloop(dirref, dirsamp, categories, gen);
+    [x, sig] = resloop(dirref, dirsamp, categories, gen, f);
 
     field = ['fiber' num2str(f)];
     results.(field) = sig;
