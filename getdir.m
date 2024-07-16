@@ -46,7 +46,7 @@ list = [list.isdir];
 folderflags = list(3:end);
 numf = length(folderflags);
 
-if all(folderflags,'all') && numF == 3
+if all(folderflags,'all') && numf == 3
     fibers = cellfun(@convertCharsToStrings, {list.name}) + filesep;
 else
     fibers = "";
