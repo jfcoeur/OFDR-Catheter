@@ -12,6 +12,7 @@ for r = 1:numres
         
             [xout, siginit] = fun(dirref, dirsamp(c), gen, r);
             field = char(categories(c));
+            field = field(1:end-1);
             sigout.(field) = siginit;
             
         end % c = 1:length(categories)
