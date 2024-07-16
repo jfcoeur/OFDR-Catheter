@@ -1,11 +1,13 @@
 function [folders] = listfolders(path)
 
 list = dir(path);
-list = {list(3:end)};
+names = string({list.name});
+names = names(3:end);
 folderflags = [list.isdir];
+folderflags = folderflags(3:end);
 
 if all(folderflags,'all')
-    folders = cellfun(@convertCharsToStrings, {list.name}) + filesep;
+    folders = names + filesep;
 else
     folders = "";
 end
