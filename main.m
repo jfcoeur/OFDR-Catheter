@@ -1,11 +1,5 @@
 function [] = main(in)
 
-% Initialization
-clearvars
-clc
-close all
-warning('off','all')
-
 gen = in.gen;
 gen.curv = gen.curvatures(in.dataset,:);
 
