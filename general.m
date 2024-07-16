@@ -7,8 +7,8 @@ gen.curvatures = [0.5 1.6 2.0 2.5 3.2 4.0; 0.25 0.8 1.0 1.25 3.125 NaN];
 
 % Geometrical parameters
 gen.r1 = 70e-6; % [m]  % 89.5e-6
-gen.r2 = r1; % [m] 
-gen.r3 = r1; % [m] 
+gen.r2 = 70e-6; % [m] 
+gen.r3 = 70e-6; % [m] 
 gen.tet12 = 240; % [deg] 
 gen.tet23 = -120; % [deg]
 
