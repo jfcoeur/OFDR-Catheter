@@ -10,7 +10,7 @@ switch filesep
 end
 
 % Matlab directory
-dircodes = dirmain + "Matlab codes" + filesep;
+dircodes = dirmain + "Matlab codes" + filesep + "OFDR-Catheter" + filesep;
 
 % Task directory
 dirtask = dircodes + task + filesep;
