@@ -11,7 +11,7 @@ for r = 1:numrefs
 
         samp = filessamp(s);
         [x, sigout] = wvlshift(ref, samp);
-        sig(s,:,r) = sigout;    
+        sig(s,:,r) = sigout';    
     
     end % s = 1:numsamps
     
