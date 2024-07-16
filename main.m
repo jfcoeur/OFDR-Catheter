@@ -1,12 +1,5 @@
 function [out] = main(in)
 
-% Initialization %
-clearvars
-clc
-close all
-warning('off','all')
-%%%%%%%%%%%%%%%%%%
-
 % Inputs
 dirraw = in.dirraw;
 gen = in.gen;
