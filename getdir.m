@@ -19,7 +19,7 @@ dirtask = dircodes + task + filesep;
 dircatheter = dirmain + "Distributed catheter" + filesep;
 
 % Raw data directory
-dirraw = dircatheter + "Raw data" + filesep;
+dirraw = dircatheter + "Raw data" + filesep + savename + filesep;
 
 if task == "Strain"
     fibers = fun(dirraw);
