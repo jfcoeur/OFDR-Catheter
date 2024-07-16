@@ -11,6 +11,7 @@ for f = 1:3
     dirsamp = dirraw(f) + "Samples" + filesep;
     categories = listfolders(dirsamp);
     dirsamp = dirsamp + categories;
+    categories = convertStringsToChars(categories);
 
     [x, sig] = resloop(dirref, dirsamp, categories, gen);
 
