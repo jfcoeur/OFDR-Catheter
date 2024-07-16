@@ -10,9 +10,9 @@ for r = 1:numres
 
         for c = 1:length(categories)
         
-            [xout, sigtemp] = fun(dirref, dirsamp(c), gen, r);
+            [xout, siginit] = fun(dirref, dirsamp(c), gen, r);
             field = categories(c);
-            sigout.(field) = sigtemp;
+            sigout.(field) = siginit;
             
         end % c = 1:length(categories)
     
