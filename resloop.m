@@ -4,6 +4,8 @@ numres = length(gen.res);
 
 for r = 1:numres
 
+    sigout = [];
+
     if ~isempty(categories)
 
         for c = 1:length(categories)
