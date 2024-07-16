@@ -2,7 +2,7 @@ function [directories] = getdir(task, loadname, savename)
 
 switch filesep
     case "\"
-        dirmain = "C:\Users\jfcoe\OneDrive - Johns Hopkins\Documents\Hopkins\GitHub\";        
+        dirmain = "D:\";        
     case "/"
         dirmain = "/home/jfcoeur/Documents/";
     otherwise
