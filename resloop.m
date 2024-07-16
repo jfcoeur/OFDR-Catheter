@@ -36,7 +36,7 @@ function [x, sig] = fun(dirref, dirsamp, gen, r)
     [filesref, filessamp] = ovapaths(dirref, dirsamp);
     
     % Strain calculation
-    [x, sig] = straincal(filesref, filessamp);
+    [x, sig] = straincal(filesref, filessamp, gen);
     
     % Filtering    
     [x, sig] = strainfilt(r, x, sig, gen);
