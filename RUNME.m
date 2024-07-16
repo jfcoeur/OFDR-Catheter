@@ -1,5 +1,11 @@
-%% TODO
-% General
+% Initialization %
+clearvars
+clc
+close all
+warning('off','all')
+%%%%%%%%%%%%%%%%%%
+
+% TODO
 task = "";
 loadname = "";
 savename = "";
