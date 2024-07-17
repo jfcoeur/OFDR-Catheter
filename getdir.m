@@ -4,7 +4,7 @@ switch filesep
     case "\"
         dirmain = "D:\";        
     case "/"
-        dirmain = "/media/jfcoeur/T7 Shield";
+        dirmain = "/media/jfcoeur/T7 Shield/";
     otherwise
         disp('Error in operating system')
 end
