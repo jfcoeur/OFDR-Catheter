@@ -1,4 +1,4 @@
-function [xyz] = 3Dcoord(x, k, alpha)
+function [xyz] = tricoord(x, k, alpha)
 
 lx = x(2)-x(1);
 
