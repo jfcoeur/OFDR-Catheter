@@ -12,7 +12,7 @@ sig3 = results.fiber3;
 
 % Curvatures
 curv = gen.curv;
-exclude = []; %%%% Enter values to exclude
+exclude = curv(1:2);
 
 % Curvature loop
 i = 1;
