@@ -29,8 +29,8 @@ for r = 1:length(gen.res)
 
     for ref = 1:size(f1c,3)
 
-        tet1 = tet1_temp(:,ref);
-        g = g_temp(:,ref);
+        tet1 = tet1_temp(:,ref)';
+        g = g_temp(:,ref)';
 
         for s = 1:size(f1c,1)
 
