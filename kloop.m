@@ -20,7 +20,7 @@ curv = gen.curv;
 % Curvature loop
 for c = 1:length(curv)
 
-    [xyz(:,c), k(:,c), alpha(:,c), err(:,c)] = shape(calib, gen, x, sig1, sig2, sig3, c);
+    [xyz(c,:), k(c,:), alpha(c,:), err(c,:,:)] = shape(calib, gen, x, sig1, sig2, sig3, c);
 
 end % c = 1:length(curv)
 
