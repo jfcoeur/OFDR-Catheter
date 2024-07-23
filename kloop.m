@@ -27,6 +27,11 @@ end % c = 1:length(curv)
 % Resolution loop
 for r = 1:length(gen.res)
 
+    mxyz = [];
+    mk = [];
+    malpha = [];
+    merr = [];
+    
     for c = 1:size(xyz,1)
     
         temp = xyz{c,r};
