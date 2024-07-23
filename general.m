@@ -12,7 +12,7 @@ gen.tet12 = 240; % [deg]
 gen.tet23 = -120; % [deg]
 
 % Calibration curvatures
-radius = [24.8 51.4 66]*1e-2/(2*pi);
+radius = [66 51.4 24.8]*1e-2/(2*pi);
 gen.curv = 1./radius;
 
 % Indices
