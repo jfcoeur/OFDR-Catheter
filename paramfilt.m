@@ -8,7 +8,7 @@ for ref = 1:size(g,2)
     
     % Smoothing
     g(:,ref) = smoothdata(g(:,ref),"sgolay", gen.wins(r));    
-    tet1(:,ref) = smoothdata(tet1(:,ref),"sgolay", gen.wins(r));
+    % tet1(:,ref) = smoothdata(tet1(:,ref),"sgolay", gen.wins(r));
 
 end % ref = 1:size(g,2)
     
