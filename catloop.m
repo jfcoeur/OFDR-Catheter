@@ -2,7 +2,7 @@ function [g, tet1] = catloop(dirload, gen)
 
 % Strain signals file
 filename = dirload + "_sig.mat";
-results = load(filename);
+results = load(filename).results;
 
 % Data
 x = results.x;
@@ -37,7 +37,7 @@ for r = 1:length(gen.res)
     for k = 1:size(gout,2)
     
         temp_g = gout{r,k};
-        temp_tet1 = tet1out{r,k}        
+        temp_tet1 = tet1out{r,k};        
         Mg(:,:,k) = temp_g;
         Mtet1(:,:,k) = temp_tet1;
     
