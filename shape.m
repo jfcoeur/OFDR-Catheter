@@ -51,14 +51,14 @@ for r = 1:length(gen.res)
         end % s = 1:size(f1c,1)
 
         % Errors
-        errout(:,:,ref) = errors(gen, x, xyzout(:,:,:,ref), kout(:,:,ref), alphaout(:,:,ref), c);
+        errout{ref} = errors(gen, x, xyzout(:,:,:,ref), kout(:,:,ref), alphaout(:,:,ref), c);
     
     end % ref = 1:size(f1c,3)
 
     k{r} = kout;
     alpha{r} = alphaout;
     xyz{r} = xyzout;
-    err{r} = errout;
+    err(r,:) = errout;
     
 end % r = 1:length(gen.res)
 
