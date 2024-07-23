@@ -19,7 +19,7 @@ for r = 1:length(gen.res)
     f2c = f2.(fields{c});
     f3c = f3.(fields{c});
     
-    x = xin{r};
+    x_temp = xin{r};
     tet1_temp = calib(r).tet1;
     g_temp = calib(r).g;
     
@@ -31,6 +31,7 @@ for r = 1:length(gen.res)
 
         tet1 = tet1_temp(:,ref)';
         g = g_temp(:,ref)';
+        x = x_temp(1:length(g));
 
         for s = 1:size(f1c,1)
 
