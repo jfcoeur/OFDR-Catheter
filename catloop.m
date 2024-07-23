@@ -34,6 +34,9 @@ end % c = 1:length(curv)
 % Resolution loop
 for r = 1:length(gen.res)
 
+    Mg = [];
+    Mtet1 = [];
+
     for k = 1:size(gout,1)
     
         temp_g = gout{r,k};
