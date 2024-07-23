@@ -35,13 +35,13 @@ for r = 1:length(gen.res)
         	
         	[k(a,:), tet1(a,:)] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
         
-        end % a = 1:size(sig1,1)
+        end % a = 1:size(f1c,1)
 
         kave = mean(k,1);
         tet1ave_temp(:,ref) = mean(tet1,1);
         g_temp(:,ref) = kave./gen.curv(c);
     
-    end % ref = 1:size(f1,3)
+    end % ref = 1:size(f1c,3)
     
     [g{r}, tet1ave{r}] = paramfilt(r, g_temp, tet1ave_temp, gen);    
         
