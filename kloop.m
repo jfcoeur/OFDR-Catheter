@@ -12,8 +12,7 @@ sig3 = results.fiber3;
 
 % Calibration file
 filecalib = dirload + "_calib.mat";
-g = load(filecalib).g;
-tet1 = load(filecalib).tet1;
+calib = load(filecalib).calib;
 
 % Curvatures
 curv = gen.curv;
@@ -22,7 +21,7 @@ curv = gen.curv;
 for c = 1:length(curv)
 
     k = curv(c);
-    [xyz{:,c}, k{:,c}, alpha{:,c}, err{:,c}] = shape(g, tet1, gen, x, sig1, sig2, sig3, c);
+    [xyz{:,c}, k{:,c}, alpha{:,c}, err{:,c}] = shape(calib, gen, x, sig1, sig2, sig3, c);
 
 end % c = 1:length(curv)
 
