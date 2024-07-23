@@ -23,9 +23,9 @@ for r = 1:length(gen.res)
     k = [];
     tet1 = [];
 
-    for ref = 1:size(f1,3)
+    for ref = 1:size(f1c,3)
 
-        for a = 1:size(f1,1)
+        for a = 1:size(f1c,1)
         
         	sig1 = f1c(a,:,ref);
         	sig2 = f2c(a,:,ref);
