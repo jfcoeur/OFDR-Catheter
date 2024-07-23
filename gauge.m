@@ -25,7 +25,7 @@ for r = 1:length(gen.res)
         	sig2 = f2(a,:,ref,c);
         	sig3 = f3(a,:,ref,c);
         	
-        	[k(a,:,ref), tet1(a,:,ref)] = k&tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
+        	[k(a,:,ref), tet1(a,:,ref)] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
         
         end % a = 1:size(sig1,1)
 
