@@ -17,8 +17,8 @@ for r = 1:length(gen.res)
     fields = fieldnames(f1);
 
     f1c = f1.(fields{c});
-    f2c = f1.(fields{c});
-    f3c = f1.(fields{c});
+    f2c = f2.(fields{c});
+    f3c = f3.(fields{c});
 
     k = [];
     tet1 = [];
