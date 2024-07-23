@@ -12,6 +12,13 @@ for r = 1:length(gen.res)
     f1 = s1{r};
     f2 = s2{r};
     f3 = s3{r};
+
+    fields = fieldnames(f1);
+
+    f1c = f1.(fields{c});
+    f2c = f2.(fields{c});
+    f3c = f3.(fields{c});
+    
     x = xin{r};
     tet1_temp = calib(r).tet1;
     g_temp = calib(r).g;
@@ -20,16 +27,16 @@ for r = 1:length(gen.res)
     alphaout = [];
     xyzout = [];
 
-    for ref = 1:size(f1,3)
+    for ref = 1:size(f1c,3)
 
         tet1 = tet1_temp(:,ref);
         g = g_temp(:,ref);
 
-        for s = 1:size(f1,1)
+        for s = 1:size(f1c,1)
 
-         	sig1 = f1(s,:,ref,c);
-        	sig2 = f2(s,:,ref,c);
-        	sig3 = f3(s,:,ref,c);   
+         	sig1 = f1c(s,:,ref);
+        	sig2 = f2c(s,:,ref);
+        	sig3 = f3c(s,:,ref);   
          
             % Curvature & orientation
             [ktemp, alphaout(s,:,ref)] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
@@ -40,12 +47,12 @@ for r = 1:length(gen.res)
             % 3D coordinates
             xyzout(s,:,:,ref) = 3Dcoord(x, kout(s,:,ref), alphaout(s,:,ref))     
         
-        end % s = 1:size(f1,1)
+        end % s = 1:size(f1c,1)
 
         % Errors
         errout(:,:,ref) = errors(gen, x, xyzout(:,:,:,ref), kout(:,:,ref), alphaout(:,:,ref), c);
     
-    end % ref = 1:size(f1,3)
+    end % ref = 1:size(f1c,3)
 
     k{r} = kout;
     alpha{r} = alphaout;
