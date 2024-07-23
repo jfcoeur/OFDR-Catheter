@@ -34,14 +34,14 @@ end % c = 1:length(curv)
 % Resolution loop
 for r = 1:length(gen.res)
 
-    for k = 1:size(gout,2)
+    for k = 1:size(gout,1)
     
         temp_g = gout{r,k};
         temp_tet1 = tet1out{r,k};        
         Mg(:,:,k) = temp_g;
         Mtet1(:,:,k) = temp_tet1;
     
-    end % k = 1:size(gout,2)
+    end % k = 1:size(gout,1)
     
     g{r} = mean(Mg,3);
     tet1{r} = mean(Mtet1,3);
