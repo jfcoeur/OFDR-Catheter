@@ -9,9 +9,9 @@ for s = 1:size(sig,1)
 
     for ref = 1:size(sig,3)
     
-        sigout(s,:,ref) = sig(s,1:sampling:end,ref);
-        sigout(s,:,ref) = filloutliers(sigout(s,:,ref), "nearest", "movmedian", gen.wino(r));
-        sigout(s,:,ref) = smoothdata(sigout(s,:,ref), "rlowess", gen.wins(r));        
+        sig(s,:,ref) = filloutliers(sig(s,:,ref), "nearest", "movmedian", gen.wino(r));
+        sig(s,:,ref) = smoothdata(sig(s,:,ref), "rlowess", gen.wins(r));
+        sigout(s,:,ref) = sig(s,1:sampling:end,ref);      
         
     end % ref = 1:size(sig,3)
     
