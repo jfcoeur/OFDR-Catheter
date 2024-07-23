@@ -1,4 +1,4 @@
-function [xyz, k, alpha, err] = shape(gin, tet1_in, gen, xin, s1, s2, s3, c)
+function [xyz, k, alpha, err] = shape(calib, gen, xin, s1, s2, s3, c)
 
 % Calibration parameters
 tet12 = gen.tet12;
@@ -13,8 +13,8 @@ for r = 1:length(gen.res)
     f2 = s2{r};
     f3 = s3{r};
     x = xin{r};
-    tet1_temp = tet1_in{r};
-    g_temp = gin{r};
+    tet1_temp = calib(r).tet1;
+    g_temp = calib(r).g;
     
     kout = [];
     alphaout = [];
