@@ -43,9 +43,7 @@ for r = 1:length(gen.res)
     
     end % ref = 1:size(f1c,3)
 
-    g{r} = g_temp;
-    tet1ave{r} = tet1ave_temp;    
-    % [g{r}, tet1ave{r}] = paramfilt(r, g_temp, tet1ave_temp, gen);    
+    [g{r}, tet1ave{r}] = paramfilt(r, g_temp, tet1ave_temp, gen);    
         
 end % r = 1:length(gen.res)
 
