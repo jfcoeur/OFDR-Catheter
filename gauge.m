@@ -22,6 +22,8 @@ for r = 1:length(gen.res)
 
     k = [];
     tet1 = [];
+    tet1ave_temp = [];
+    g_temp = [];
 
     for ref = 1:size(f1c,3)
 
