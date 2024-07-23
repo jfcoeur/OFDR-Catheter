@@ -33,7 +33,7 @@ for r = 1:length(gen.res)
         tet1ave(:,ref) = mean(tet1,1);
         g(:,ref) = kave./gen.curv(c);
     
-    end ref = 1:size(f1,3)
+    end % ref = 1:size(f1,3)
     
     [g{r}, tet1ave{r}] = paramfilt(r, g, tet1ave, gen);    
         
