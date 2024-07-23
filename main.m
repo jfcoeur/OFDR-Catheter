@@ -1,7 +1,6 @@
 function [out] = main(in)
 
 gen = in.gen;
-gen.curv = gen.curvatures(in.dataset,:);
 
 % Calculation
 [g, tet1] = catloop(in.dirload, gen);
