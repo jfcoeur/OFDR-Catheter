@@ -4,7 +4,7 @@ for ref = 1:size(g,2)
 
     % Remove outliers
     g(:,ref) = filloutliers(g(:,ref),"center");
-    tet1(:,ref) = filloutliers(tet1(:,ref),"center");
+    % tet1(:,ref) = filloutliers(tet1(:,ref),"center");
     
     % Smoothing
     g(:,ref) = smoothdata(g(:,ref),"sgolay", gen.wins(r));    
