@@ -39,8 +39,8 @@ for r = 1:length(gen.res)
 
     for k = 1:size(gout,1)
     
-        temp_g = gout{r,k};
-        temp_tet1 = tet1out{r,k};        
+        temp_g = gout(k,r);
+        temp_tet1 = tet1out(k,r);        
         Mg(:,:,k) = temp_g;
         Mtet1(:,:,k) = temp_tet1;
     
