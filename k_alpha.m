@@ -1,4 +1,4 @@
-function [k, alpha] = k&alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23)
+function [k, alpha] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23)
 
 D12 = sig1 - sig2;
 D13 = sig1 - sig3;
