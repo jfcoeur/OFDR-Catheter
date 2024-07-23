@@ -9,7 +9,8 @@ colnames = {'xyz' 'k' 'alpha'};
 for s = 1:size(xyz,1)
     
     xyzr = tricoord(x, kr, alphar);
-    [err_xyz(s,:), rmse_xyz(s)] = fun(xyzr, xyz(s,:,:));
+    xyze = reshape(xyz(s,:,:), size(xyzr));
+    [err_xyz(s,:), rmse_xyz(s)] = fun(xyzr, xyze);
     [err_k(s,:), rmse_k(s)] = fun(kr, k(s,:));
     [err_alpha(s,:), rmse_alpha(s)] = fun(alphar, alpha(s,:));
 
