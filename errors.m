@@ -8,7 +8,7 @@ colnames = {'xyz' 'k' 'alpha'};
 % Theoretical shape
 for s = 1:size(xyz,1)
     
-    xyzr = 3Dcoord(x, kr, alphar);
+    xyzr = tricoord(x, kr, alphar);
     [err_xyz(s,:), rmse_xyz(s)] = fun(xyzr, xyz(s,:,:));
     [err_k(s,:), rmse_k(s)] = fun(kr, k(s,:));
     [err_alpha(s,:), rmse_alpha(s)] = fun(alphar, alpha(s,:));
