@@ -25,7 +25,7 @@ for c = 1:length(curv)
         continue;
     end  
     
-    [gout{:,i}, tet1out{:,i}] = gauge(gen, sig1, sig2, sig3, c);
+    [gout(i,:), tet1out(i,:)] = gauge(gen, sig1, sig2, sig3, c);
 
     i  = i + 1;
     
