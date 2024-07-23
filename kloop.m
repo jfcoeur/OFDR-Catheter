@@ -2,7 +2,7 @@ function [Mxyz, Mk, Malpha, Merr] = kloop(dirload, gen)
 
 % Strain signals file
 filename = dirload + "_sig.mat";
-results = load(filename);
+results = load(filename).results;
 
 % Data
 x = results.x;
