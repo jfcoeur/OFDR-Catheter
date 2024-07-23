@@ -14,6 +14,12 @@ for r = 1:length(gen.res)
     f2 = s2{r};
     f3 = s3{r};
 
+    fields = fieldnames(f1);
+
+    f1c = f1.(fields{c});
+    f2c = f1.(fields{c});
+    f3c = f1.(fields{c});
+
     k = [];
     tet1 = [];
 
@@ -21,9 +27,9 @@ for r = 1:length(gen.res)
 
         for a = 1:size(f1,1)
         
-        	sig1 = f1(a,:,ref,c);
-        	sig2 = f2(a,:,ref,c);
-        	sig3 = f3(a,:,ref,c);
+        	sig1 = f1c(a,:,ref);
+        	sig2 = f2c(a,:,ref);
+        	sig3 = f3c(a,:,ref);
         	
         	[k(a,:,ref), tet1(a,:,ref)] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
         
