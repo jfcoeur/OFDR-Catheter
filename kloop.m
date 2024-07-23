@@ -20,28 +20,28 @@ curv = gen.curv;
 % Curvature loop
 for c = 1:length(curv)
 
-    [xyz(c,:), curv(c,:), alpha(c,:), err(c,:,:)] = shape(calib, gen, x, sig1, sig2, sig3, c);
+    [xyz(c,:), k(c,:), alpha(c,:), err(c,:,:)] = shape(calib, gen, x, sig1, sig2, sig3, c);
 
 end % c = 1:length(curv)
 
 % Resolution loop
 for r = 1:length(gen.res)
 
-    for k = 1:size(xyz,2)
+    for c = 1:size(xyz,1)
     
-        temp = xyz{r,k};
-        mxyz(:,:,:,:,k) = temp; 
+        temp = xyz{r,c};
+        mxyz(:,:,:,:,c) = temp; 
         
-        temp = curv{r,k};
-        mk(:,:,:,k) = temp; 
+        temp = k{r,c};
+        mk(:,:,:,c) = temp; 
         
-        temp = alpha{r,k};
-        malpha(:,:,:,k) = temp; 
+        temp = alpha{r,c};
+        malpha(:,:,:,c) = temp; 
         
-        temp = err{r,k};
-        merr(:,:,:,k) = temp;   
+        temp = err{r,c};
+        merr(:,:,:,c) = temp;   
         
-    end % k = 1:size(xyz,2)
+    end % c = 1:size(xyz,1)
     
     Mxyz{r} = mxyz;
     Mk{r} = mk;
