@@ -40,18 +40,21 @@ for r = 1:length(gen.res)
         	sig3 = f3c(s,:,ref);   
          
             % Curvature & orientation
-            [ktemp, alphaout(s,:,ref)] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
+            [ktemp, alphaout] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
+            alphaout = deg2rad(alphaout);
+            alphaout = unwrap(alphaout);
+            alphaout(s,:,ref) = rad2deg(alphaout);
     
             % Curvature correction
             kout(s,:,ref) = ktemp./g;            
             
             % 3D coordinates
-            xyzout(s,:,:,ref) = 3Dcoord(x, kout(s,:,ref), alphaout(s,:,ref))     
+            xyzout = tricoord(x, kout(s,:,ref), alphaout(s,:,ref))     
         
         end % s = 1:size(f1c,1)
 
         % Errors
-        errout{ref} = errors(gen, x, xyzout(:,:,:,ref), kout(:,:,ref), alphaout(:,:,ref), c);
+        [errout, xyzr, xyze(s,:,:,ref)] = errors(gen, x, xyzout, kout(s,:,ref), alphaout(s,:,ref), c);
     
     end % ref = 1:size(f1c,3)
 
