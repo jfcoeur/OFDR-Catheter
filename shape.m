@@ -60,10 +60,11 @@ for r = 1:length(gen.res)
     
     end % ref = 1:size(f1c,3)
 
-    k{r} = kout;
-    alpha{r} = alphaout;
-    xyz{r} = xyzout;
-    err(r,:) = errout;
+    [err, xyz_min, k_min, alpha_min] = refmin(moy, Merr, kout, alphaout, xyze, r);
+
+    k{r} = k_min;
+    alpha{r} = alpha_min;
+    xyz{r} = xyz_min;
     
 end % r = 1:length(gen.res)
 
