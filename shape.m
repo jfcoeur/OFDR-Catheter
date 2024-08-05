@@ -55,6 +55,8 @@ for r = 1:length(gen.res)
 
         % Errors
         [errout, xyzr, xyze(s,:,:,ref)] = errors(gen, x, xyzout, kout(s,:,ref), alphaout(s,:,ref), c);
+        moy(s,ref) = mean(errout,"all");
+        Merr(:,:,s,ref) = errout;        
     
     end % ref = 1:size(f1c,3)
 
