@@ -25,7 +25,7 @@ for r = 1:length(gen.res)
     
     kout = [];
     alphaout = [];
-    xyzout = [];
+    xyze = [];
 
     for ref = 1:size(f1c,3)
 
