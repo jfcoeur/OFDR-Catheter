@@ -1,4 +1,4 @@
-function [err, xyz_min, k_min, alpha_min] = refmin(moy, Merr, k, alpha, xyze, r)
+function [err, xyz_min, k_min, alpha_min] = refmin(moy, Merr, k, alpha, xyze)
 
 k_min = [];
 alpha_min = [];
@@ -9,7 +9,7 @@ xyz_min = [];
 for i = 1:size(Merr,3)
 
     % Errors
-    err(:,:,i,r) = Merr(:,:,i,I(i));
+    err(:,:,i) = Merr(:,:,i,I(i));
     
     % k & alpha
     k_min(i,:) = k(i,:,I(i));

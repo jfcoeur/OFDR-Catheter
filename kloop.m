@@ -1,4 +1,4 @@
-function [Mxyz, Mk, Malpha, Merr] = kloop(dirload, gen)
+function [out] = kloop(dirload, gen)
 
 % Strain signals file
 filename = dirload + "_sig.mat";
@@ -20,41 +20,11 @@ curv = gen.curv;
 % Curvature loop
 for c = 1:length(curv)
 
-    [xyz(c,:), k(c,:), alpha(c,:), err(c,:,:,:,:)] = shape(calib, gen, x, sig1, sig2, sig3, c);
+    [xyz(c,:), k(c,:), alpha(c,:), err(c,:,:,:,:)] = shape(calib, gen, x, sig1, sig2, sig3, c);    
 
 end % c = 1:length(curv)
+% errorplot(curv, err);
 
-% Resolution loop
-for r = 1:length(gen.res)
-
-    mxyz = [];
-    mk = [];
-    malpha = [];
-    merr = [];
-    
-    for c = 1:size(xyz,1)
-    
-        temp = xyz{c,r};
-        mxyz(:,:,:,:,c) = temp; 
-        
-        temp = k{c,r};
-        mk(:,:,:,c) = temp; 
-        
-        temp = alpha{c,r};
-        malpha(:,:,:,c) = temp; 
-        
-        for ref = 1:size(err,3)
-            temp = err{c,r,ref};
-            merr{ref,c} = temp;
-        end % ref = 1:size(err,3)   
-        
-    end % c = 1:size(xyz,1)
-    
-    Mxyz{r} = mxyz;
-    Mk{r} = mk;
-    Malpha{r} = malpha;
-    Merr(r,:,:) = merr;
-
-end % r = 1:length(gen.res)
+out = [];
 
 end % function kloop

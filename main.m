@@ -1,8 +1,9 @@
 function [out] = main(in)
 
-[out.xyz, out.k, out.alpha, out.err] = kloop(in.dirload, in.gen);
+kloop(in.dirload, in.gen);
 
 % Step
+out = [];
 disp("Validation task completed");
 
 end % function main

@@ -33,7 +33,7 @@ for r = 1:length(gen.res)
         g = g_temp(:,ref)';
         x = x_temp(1:length(g));
 
-        for s = 1:size(f1c,1)
+        for s = 1:7 % 1:size(f1c,1)
 
          	sig1 = f1c(s,:,ref);
         	sig2 = f2c(s,:,ref);
@@ -49,18 +49,20 @@ for r = 1:length(gen.res)
             kout(s,:,ref) = ktemp./g;            
             
             % 3D coordinates
-            xyzout = tricoord(x, kout(s,:,ref), alphaout(s,:,ref))     
-        
-        end % s = 1:size(f1c,1)
+            xyzout = tricoord(x, kout(s,:,ref), alphaout(s,:,ref));
 
-        % Errors
-        [errout, xyzr, xyze(s,:,:,ref)] = errors(gen, x, xyzout, kout(s,:,ref), alphaout(s,:,ref), c);
-        moy(s,ref) = mean(errout,"all");
-        Merr(:,:,s,ref) = errout;        
+            % Errors
+            [errout, xyzr, xyze_temp] = errors(gen, x, xyzout, kout(s,:,ref), alphaout(s,:,ref), c);
+            xyze(s,:,:,ref) = xyze_temp;
+            moy(s,ref) = mean(errout,"all");
+            Merr(:,:,s,ref) = errout; 
+
+        end % s = 1:size(f1c,1)       
     
     end % ref = 1:size(f1c,3)
 
-    [err, xyz_min, k_min, alpha_min] = refmin(moy, Merr, kout, alphaout, xyze, r);
+    [err(:,:,:,r), xyz_min, k_min, alpha_min] = refmin(moy, Merr, kout, alphaout, xyze);
+    % shapeplot(xyz_min, xyzr, 20, 'Drum size: 25.34m^{-1}');
 
     k{r} = k_min;
     alpha{r} = alpha_min;
