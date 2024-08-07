@@ -40,10 +40,10 @@ for r = 1:length(gen.res)
         	sig3 = f3c(s,:,ref);   
          
             % Curvature & orientation
-            [ktemp, alphaout] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
-            alphaout = deg2rad(alphaout);
-            alphaout = unwrap(alphaout);
-            alphaout(s,:,ref) = rad2deg(alphaout);
+            [ktemp, alphatemp] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
+            alphatemp = deg2rad(alphatemp);
+            alphatemp = unwrap(alphatemp);
+            alphaout(s,:,ref) = rad2deg(alphatemp);
     
             % Curvature correction
             kout(s,:,ref) = ktemp./g;            
