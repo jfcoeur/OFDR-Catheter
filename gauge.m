@@ -1,7 +1,7 @@
 function [g, tet1ave] = gauge(gen, s1, s2, s3, c)
 
 % Initial parameters
-alpha = 0;
+alpha = 360;
 r1 = gen.r1; % [m]  
 r2 = gen.r2; % [m] 
 r3 = gen.r3; % [m] 
@@ -33,12 +33,16 @@ for r = 1:length(gen.res)
         	sig2 = f2c(a,:,ref);
         	sig3 = f3c(a,:,ref);
         	
-        	[k(a,:), tet1(a,:)] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);            
+        	[k(a,:), tet1_temp] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);
+            tet1_temp = deg2rad(tet1_temp);
+            tet1_temp = unwrap(tet1_temp);
+            tet1(a,:) = rad2deg(tet1_temp);
+            tet1(a,:) = tet1(a,:) - 360;
         
         end % a = 1:size(f1c,1)
 
-        kave = mean(k,1);
-        tet1ave_temp(:,ref) = mean(tet1,1);
+        kave = mean(k(1:7,:),1);
+        tet1ave_temp(:,ref) = mean(tet1(1:7,:),1);
         g_temp(:,ref) = kave./gen.curv(c);
     
     end % ref = 1:size(f1c,3)
