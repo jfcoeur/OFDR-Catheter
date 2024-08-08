@@ -7,7 +7,7 @@ kr = gen.curv(c)*ones(size(x));
 xyzr = tricoord(x, kr, alphar);
 xyze = reshape(xyz, size(xyzr));
 
-% Test
+% Registration
 xyze = pointCloud(xyze');
 xyzr_temp = pointCloud(xyzr');
 [~,output] = pcregistericp(xyze,xyzr_temp);
