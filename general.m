@@ -20,9 +20,4 @@ gen.Sinus = [2026:7151; 1380:6505; 1508:6633];
 gen.Exponential = [2967:7152; 2324:6509; 2460:6645];
 gen.Full = gen.Sinus;
 
-% Lengths
-% Lfull = ;
-% Lsin = ;
-% Lexp = ;
-
 end % function general
