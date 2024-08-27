@@ -35,29 +35,30 @@ for r = 1:length(gen.res)
 
         for s = 1:7 % 1:size(f1c,1)
 
-         	sig1 = f1c(s,:,ref);
-        	sig2 = f2c(s,:,ref);
-        	sig3 = f3c(s,:,ref);   
+            sig1 = f1c(s,:,ref);
+            sig2 = f2c(s,:,ref);
+            sig3 = f3c(s,:,ref);   
          
             % Curvature & orientation
             [ktemp, alphatemp] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
             alphatemp = deg2rad(alphatemp);
             alphatemp = unwrap(alphatemp);
-            alphaout(s,:,ref) = rad2deg(alphatemp);
+            alphatemp = rad2deg(alphatemp);
     
             % Curvature correction
-            kout(s,:,ref) = ktemp./g;            
+            ktemp = ktemp./g;            
             
             % 3D coordinates
+            [kout(s,:,ref), alphaout(s,:,ref)] = paramfilt(r, ktemp, alphatemp, gen);
             xyzout = tricoord(x, kout(s,:,ref), alphaout(s,:,ref));
 
             % Errors
             [errout, xyzr, xyze_temp] = errors(gen, x, xyzout, kout(s,:,ref), alphaout(s,:,ref), c);
             xyze(s,:,:,ref) = xyze_temp;
-            moy(s,ref) = mean(errout,"all");
-            Merr(:,:,s,ref) = errout; 
+            moy(s,ref) = errout(4,1); % mean(errout,"all");
+            Merr(:,:,s,ref) = errout;
 
-        end % s = 1:size(f1c,1)       
+        end % s = 1:size(f1c,1)
     
     end % ref = 1:size(f1c,3)
 

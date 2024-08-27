@@ -17,9 +17,9 @@ for i = 1:length(D12)
     if k(i) < 0
         k(i) = -k(i);
         if alpha(i) < 180
-	    alpha(i) = alpha(i) + 180;
+	        alpha(i) = alpha(i) + 180;
         else
-	    alpha(i) = alpha(i) - 180;
+	        alpha(i) = alpha(i) - 180;
         end
     end
     
