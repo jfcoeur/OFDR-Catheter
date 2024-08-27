@@ -1,7 +1,7 @@
 function [g, tet1] = catloop(dirload, gen)
 
 % Strain signals file
-filename = dirload + "_sig.mat";
+filename = dirload.sig + "_sig.mat";
 results = load(filename).results;
 
 % Data
@@ -12,7 +12,7 @@ sig3 = results.fiber3;
 
 % Curvatures
 curv = gen.curv;
-exclude = curv(1:2);
+exclude = curv(1:2); % 1:2 2:3 [1,3]
 
 % Curvature loop
 i = 1;
@@ -45,9 +45,32 @@ for r = 1:length(gen.res)
         Mtet1(:,:,k) = temp_tet1;
     
     end % k = 1:size(gout,1)
-    
-    g{r} = mean(Mg,3);
-    tet1{r} = mean(Mtet1,3);
+
+    g{r} = mean(Mg,3); % {r}
+    tet1{r} = mean(Mtet1,3); % {r}
+
+    % xval = x{r};
+    % xval = xval(1:length(g));
+
+    % gval = mean(g(:,1:6),2);
+    % tet1val = mean(tet1(:,1:6),2);
+
+    % gval = g(:,1);
+    % tet1val = tet1(:,1);
+
+    % subplot(1,2,1)
+    % plot(xval, gval, 'LineWidth', 3)
+    % title('K_\epsilon', 'FontSize', 40)
+    % xlabel('Position [m]', 'FontSize', 40)
+    % ylabel('Amplitude', 'FontSize', 40)
+    % set(gca, 'FontSize', 40)
+    % 
+    % subplot(1,2,2)
+    % plot(xval, tet1val-360, 'LineWidth', 3)
+    % title('\phi_1', 'FontSize', 40)
+    % xlabel('Position [m]', 'FontSize', 40)
+    % ylabel('Amplitude (deg)', 'FontSize', 40)
+    % set(gca, 'FontSize', 40)    
 
 end % r = 1:length(gen.res)
 

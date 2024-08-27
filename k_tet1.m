@@ -15,9 +15,9 @@ for i = 1:length(D12)
     if k(i) < 0
         k(i) = -k(i);
         if tet1(i) < 180
-	    tet1(i) = tet1(i) + 180;
+	        tet1(i) = tet1(i) + 180;
         else
-	    tet1(i) = tet1(i) - 180;
+	        tet1(i) = tet1(i) - 180;
         end
     end
 

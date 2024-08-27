@@ -1,7 +1,7 @@
 function [g, tet1ave] = gauge(gen, s1, s2, s3, c)
 
 % Initial parameters
-alpha = 360;
+alpha = 0;
 r1 = gen.r1; % [m]  
 r2 = gen.r2; % [m] 
 r3 = gen.r3; % [m] 
@@ -27,22 +27,37 @@ for r = 1:length(gen.res)
 
     for ref = 1:size(f1c,3)
 
-        for a = 1:size(f1c,1)
+        i = 1;
+
+        for a = 6:7 % 1:size(f1c,1) % [1,5,8,12]
         
-        	sig1 = f1c(a,:,ref);
-        	sig2 = f2c(a,:,ref);
-        	sig3 = f3c(a,:,ref);
+            sig1 = f1c(a,:,ref);
+            sig2 = f2c(a,:,ref);
+            sig3 = f3c(a,:,ref);
         	
-        	[k(a,:), tet1_temp] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);
+            [k(i,:), tet1_temp] = k_tet1(alpha, sig1, sig2, sig3, r1, r2, r3, tet12, tet23);
             tet1_temp = deg2rad(tet1_temp);
             tet1_temp = unwrap(tet1_temp);
-            tet1(a,:) = rad2deg(tet1_temp);
-            tet1(a,:) = tet1(a,:) - 360;
-        
+            tet1(i,:) = rad2deg(tet1_temp);
+            
+            % if a == 5 % Medium & large
+            %     tet1(i,:) = tet1(i,:) - 360;
+            % end
+
+            % if a == 1 % Sinus
+            %     tet1(i,:) = tet1(i,:) + 360;
+            % end
+            % 
+            % if ismember(a, [2,3,4,6,7,8,10,12]) % Sinus
+            %     tet1(i,:) = tet1(i,:) - 360;
+            % end
+
+            i = i + 1;
+                    
         end % a = 1:size(f1c,1)
 
-        kave = mean(k(1:7,:),1);
-        tet1ave_temp(:,ref) = mean(tet1(1:7,:),1);
+        kave = mean(k,1); 
+        tet1ave_temp(:,ref) = mean(tet1,1);
         g_temp(:,ref) = kave./gen.curv(c);
     
     end % ref = 1:size(f1c,3)
