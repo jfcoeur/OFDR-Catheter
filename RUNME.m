@@ -6,12 +6,14 @@ warning('off','all')
 %%%%%%%%%%%%%%%%%%
 
 % TODO
-task = "";
-loadname = "";
-savename = "";
+task = "Validation"; % Validation
+rawname = "";
+loadname.sig = "Calibration";
+loadname.calib = "Calibration";
+savename = "Calibration";
 
 % Directories
-directories = getdir(task, loadname, savename);
+directories = getdir(task, rawname, loadname, savename);
 
 % Inputs
 in = inputs(task, directories);

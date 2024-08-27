@@ -1,4 +1,4 @@
-function [directories] = getdir(task, loadname, savename)
+function [directories] = getdir(task, rawname, loadname, savename)
 
 switch filesep
     case "\"
@@ -19,7 +19,7 @@ dirtask = dircodes + task + filesep;
 dircatheter = dirmain + "Distributed catheter" + filesep;
 
 % Raw data directory
-dirraw = dircatheter + "Raw data" + filesep + savename + filesep;
+dirraw = dircatheter + "Raw data" + filesep + rawname + filesep;
 
 if task == "Strain"
     fibers = fun(dirraw);
@@ -30,7 +30,8 @@ end
 dirproc = dircatheter + "Processed data" + filesep;
 
 % Loading directory
-dirload = dirproc + loadname;
+dirload.sig = dirproc + loadname.sig;
+dirload.calib = dirproc + loadname.calib;
 
 % Saving directory
 dirsave = dirproc + savename;
