@@ -43,10 +43,10 @@ for r = 1:length(gen.res)
             [ktemp, alphatemp] = k_alpha(sig1, sig2, sig3, r1, r2, r3, tet1, tet12, tet23);
             alphatemp = deg2rad(alphatemp);
             alphatemp = unwrap(alphatemp);
-            alphatemp = rad2deg(alphatemp);
+            alphaout(s,:,ref) = rad2deg(alphatemp);
     
             % Curvature correction
-            ktemp = ktemp./g;            
+            kout(s,:,ref) = ktemp./g;            
             
             % 3D coordinates
             % [kout(s,:,ref), alphaout(s,:,ref)] = paramfilt(r, ktemp, alphatemp, gen);
