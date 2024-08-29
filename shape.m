@@ -49,7 +49,7 @@ for r = 1:length(gen.res)
             ktemp = ktemp./g;            
             
             % 3D coordinates
-            [kout(s,:,ref), alphaout(s,:,ref)] = paramfilt(r, ktemp, alphatemp, gen);
+            % [kout(s,:,ref), alphaout(s,:,ref)] = paramfilt(r, ktemp, alphatemp, gen);
             xyzout = tricoord(x, kout(s,:,ref), alphaout(s,:,ref));
 
             % Errors
