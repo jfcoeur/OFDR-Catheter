@@ -1,6 +1,6 @@
 function [gen] = general()
 
-gen.res = [0.001 0.003 0.005 0.0075 0.01]; % Resolution [m]
+gen.res = [0.001 0.003 0.005 0.008 0.01]; % Resolution [m]
 gen.wino = [20 7 2 1 1]; % Outlier window sizes
 gen.wins = [20 7 2 1 1]; % Smoothing window sizes
 
