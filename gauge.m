@@ -29,7 +29,7 @@ for r = 1:length(gen.res)
 
         i = 1;
 
-        for a = 6:7 % 1:size(f1c,1) % [1,5,8,12]
+        for a = 6:7 % 1:size(f1c,1) % [1,5,8,12] 6:7
         
             sig1 = f1c(a,:,ref);
             sig2 = f2c(a,:,ref);

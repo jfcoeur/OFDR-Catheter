@@ -64,12 +64,12 @@ for r = 1:length(gen.res)
     % xlabel('Position [m]', 'FontSize', 40)
     % ylabel('Amplitude', 'FontSize', 40)
     % set(gca, 'FontSize', 40)
-    % 
+
     % subplot(1,2,2)
     % plot(xval, tet1val-360, 'LineWidth', 3)
     % title('\phi_1', 'FontSize', 40)
     % xlabel('Position [m]', 'FontSize', 40)
-    % ylabel('Amplitude (deg)', 'FontSize', 40)
+    % ylabel('[\circ]', 'FontSize', 40)
     % set(gca, 'FontSize', 40)    
 
 end % r = 1:length(gen.res)

@@ -23,4 +23,4 @@ for i = 1:length(D12)
 
 end % i = 1:length(D12)
 
-end % function k&tet1
+end % function k_tet1
