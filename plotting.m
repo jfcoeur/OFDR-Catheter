@@ -1,4 +1,4 @@
-[k, alpha] = realShape("Sinus2D", 0.4, 395);
+[k, alpha] = realShape("Sinus2D", 0.4, 41);
 k = 1000*k;
 
 %%
@@ -6,7 +6,7 @@ subplot(1,2,1)
 plot(xval, k, 'LineWidth', 3)
 title('\kappa', 'FontSize', 40)
 xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [m^{-1}]', 'FontSize', 40)
+ylabel('[m^{-1}]', 'FontSize', 40)
 xlim([xval(1), xval(end)])
 set(gca, 'FontSize', 40)
     
@@ -16,87 +16,84 @@ subplot(1,2,2)
 plot(xval, tet1_sinus, 'LineWidth', 3)
 title('\phi_1', 'FontSize', 40)
 xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [deg]', 'FontSize', 40)
+ylabel('[\circ]', 'FontSize', 40)
 xlim([xval(1), xval(end)])
 set(gca, 'FontSize', 40)
 
 %%
-idx1 = 1:164;
-idx2 = 165:231;
-idx3 = 232:395;
+idx{1} = 1:16;
+idx{2} = 17:25;
+idx{3} = 26:41;
+xtemp = xval(idx{2});
 
-drum1 = tet1(idx1) - abs(tet1(100)-tet1_sinus(100));
-drum2 = tet1(idx2) - 360;
-drum3 = tet1(idx3) - abs(tet1(297)-tet1_sinus(297));
+drum{1} = tet1(idx{1}) - abs(tet1(11)-tet1_sinus(11));
+drum{2} = tet1(idx{2}) - 360;
+drum{3} = tet1(idx{3}) - abs(tet1(31)-tet1_sinus(31));
 
-sin1 = tet1_sinus(idx1);
-sin2 = tet1_sinus(idx2);
-sin3 = tet1_sinus(idx3);
+sin{1} = tet1_sinus(idx{1});
+sin{2} = tet1_sinus(idx{2});
+sin{3} = tet1_sinus(idx{3});
 
-subplot(2,3,1)
-plot(xval(idx1), k(idx1), 'LineWidth', 3)
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [m^{-1}]', 'FontSize', 40)
-xlim([xval(idx1(1)), xval(idx1(end))])
+fig = tiledlayout(2,3,'TileSpacing','Compact');
+
+nexttile
+plot(xval(idx{1}), k(idx{1}), 'LineWidth', 3)
 set(gca, 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel("[m^{-1}]", 'FontSize', 40)
 
-subplot(2,3,2)
-plot(xval(idx2), k(idx2), 'LineWidth', 3)
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [m^{-1}]', 'FontSize', 40)
+nexttile
+plot(xval(idx{2}), k(idx{2}), 'LineWidth', 3)
+set(gca, 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel('','FontSize',0.01)
 title('\kappa', 'FontSize', 40)
-xlim([xval(idx2(1)), xval(idx2(end))])
-ylim([k(idx2(1)), k(idx2(end))])
-set(gca, 'FontSize', 40)
+xlim([xtemp(1), xtemp(end)])
 
-subplot(2,3,3)
-plot(xval(idx3), k(idx3), 'LineWidth', 3)
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [m^{-1}]', 'FontSize', 40)
-xlim([xval(idx3(1)), xval(idx3(end))])
+nexttile
+plot(xval(idx{3}), k(idx{3}), 'LineWidth', 3)
 set(gca, 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel('','FontSize',0.01)
 
-subplot(2,3,4)
-plot(xval(idx1), sin1, 'LineWidth', 3)
+nexttile
+plot(xval(idx{1}), sin{1}, 'LineWidth', 3)
 hold on
-plot(xval(idx1), drum1, 'LineWidth', 3) 
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [deg]', 'FontSize', 40)
-xlim([xval(idx1(1)), xval(idx1(end))])
-ylim([-115, 245])
+plot(xval(idx{1}), drum{1}, 'LineWidth', 3)
 set(gca, 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel("[\circ]", 'FontSize', 40)
 
-subplot(2,3,5)
-plot(xval(idx2), sin2, 'LineWidth', 3)
+nexttile
+plot(xval(idx{2}), sin{2}, 'LineWidth', 3)
 hold on
-plot(xval(idx2), drum2, 'LineWidth', 3) 
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [deg]', 'FontSize', 40)
+plot(xval(idx{2}), drum{2}, 'LineWidth', 3)
+set(gca, 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel('','FontSize',0.01)
 title('\phi_1', 'FontSize', 40)
-xlim([xval(idx2(1)), xval(idx2(end))])
-ylim([-270, 90])
-set(gca, 'FontSize', 40)
+xlim([xtemp(1), xtemp(end)])
 
-subplot(2,3,6)
-plot(xval(idx3), sin3, 'LineWidth', 3)
+nexttile
+plot(xval(idx{3}), sin{3}, 'LineWidth', 3)
 hold on
-plot(xval(idx3), drum3, 'LineWidth', 3) 
-xlabel('Position [m]', 'FontSize', 40)
-ylabel('Amplitude [deg]', 'FontSize', 40)
-xlim([xval(idx3(1)), xval(idx3(end))])
-ylim([-405, -45])
+plot(xval(idx{3}), drum{3}, 'LineWidth', 3)
 set(gca, 'FontSize', 40)
-legend('Sine curve calibration', 'Drum calibration', 'FontSize', 40)
+xlabel('','FontSize',0.01)
+ylabel('','FontSize',0.01)
+
+xlabel(fig, 'Position [m]', 'FontSize', 40)
+legend('Sine curve calibration', 'Drum calibration', 'FontSize', 30)
 
 %%
 x = [1,3,5,8,10];
-plot(x, rmse_ave(1,:), '-o', 'LineWidth', 3, 'MarkerSize', 35)
+errorbar(x,rmse_ave(1,:),rmse_std(1,:),'-o','LineWidth',3,'MarkerSize',35)
 hold on
-plot(x, rmse_ave(2,:), '-o', 'LineWidth', 3, 'MarkerSize', 35)
+errorbar(x,rmse_ave(2,:),rmse_std(2,:),'-o','LineWidth',3,'MarkerSize',35)
 hold on
-plot(x, rmse_ave(3,:), '-o', 'LineWidth', 3, 'MarkerSize', 35)
+errorbar(x,rmse_ave(3,:),rmse_std(3,:),'-o','LineWidth',3,'MarkerSize',35)
 legend('9.52 m^{-1}', '12.22 m^{-1}', '25.34 m^{-1}')
 xlabel('Spatial resolution [mm]', 'FontSize', 40)
 ylabel('RMSE [mm]', 'FontSize', 40)
-title('Catheter', 'FontSize', 40)
+title('Catheter validation results', 'FontSize', 40)
 set(gca, 'FontSize', 40)
